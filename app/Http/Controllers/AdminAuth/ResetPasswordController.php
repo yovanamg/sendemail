@@ -8,25 +8,22 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 
-class ResetPasswordController extends Controller
-{
-	protected $redirectTo = '/admin_home';
+class ResetPasswordController extends Controller {
+  protected $redirectTo = '/admin_home';
 
-    use ResetsPasswords;
+  use ResetsPasswords;
 
-    public function showResetForm(Request $request, $token = null) {
-        return view('admin.passwords.reset')->with(
-            ['token' => $token, 'email' => $request->email]
-        );
-    }
+  public function showResetForm(Request $request, $token = null) {
+    return view('admin.passwords.reset')->with(
+        ['token' => $token, 'email' => $request->email]
+    );
+  }
 
-    public function broker()
-    {
-        return Password::broker('admins');
-    }
+  public function broker() {
+    return Password::broker('admins');
+  }
 
-    protected function guard()
-    {
-        return Auth::guard('web_admin');
-    }
+  protected function guard() {
+    return Auth::guard('web_admin');
+  }
 }

@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-info">
-        <div class="panel-heading">Registro</div>
+        <div class="panel-heading">Registro22</div>
         <div class="panel-body">
           <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin_register') }}">
             {{ csrf_field() }}
@@ -28,18 +28,6 @@
                 @if ($errors->has('email'))
                   <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
-                  </span>
-                @endif
-              </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
-              <label for="age" class="col-md-4 control-label">Edad</label>
-              <div class="col-md-6">
-                <input id="age" type="text" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
-                @if ($errors->has('age'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('age') }}</strong>
                   </span>
                 @endif
               </div>

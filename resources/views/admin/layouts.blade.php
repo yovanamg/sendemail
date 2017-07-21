@@ -30,28 +30,46 @@
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
-          <ul class="nav navbar-nav" style="margin-top: 19px;">
-            <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Catálogos <span class="caret"></span></a>
+        <ul class="nav navbar-nav" style="margin-top: 19px;">
+        <li class="dropdown">
+          <a href="#" 
+            class="dropdown-toggle" 
+            data-toggle="dropdown" 
+            role="button" 
+            aria-expanded="false">
+            Categorías 
+            <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{{url('/')}}">Blusas</a></li>
-            <li><a href="{{url('/')}}">Vestidos</a></li>
-            <li><a href="{{url('/')}}">Pantalones</a></li>
-            <li><a href="{{url('/')}}">Faldas</a></li>
-            <li><a href="{{url('/')}}">Bolsas</a></li>
-            <li><a href="{{url('/')}}">Tenis</a></li>
-            <li><a href="{{url('/')}}">Zapatillas</a></li>
-            <li><a href="{{url('/')}}">Accesorios</a></li>
+            @foreach($categories as $c)
+              <li>
+                <a href="{{url('')}}">{{$c->name}}</a>
+              </li>
+            @endforeach
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" role="button" aria-expanded="false">
+          <a href="{{url('viewhot')}}" role="button" aria-expanded="false">
             Lo mas vendido
           </a>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewusers')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewclient')}}" role="button" aria-expanded="false">
             Clientes
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="{{url('viewarticles')}}" role="button" aria-expanded="false">
+            Articulos
+          </a>
+        </li>
+         <li class="dropdown">
+          <a href="{{url('viewcategory')}}" role="button" aria-expanded="false">
+            Categorías - Articulos
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="{{url('viewinventary')}}" role="button" aria-expanded="false">
+            Inventario
           </a>
         </li>
         <li class="dropdown">
