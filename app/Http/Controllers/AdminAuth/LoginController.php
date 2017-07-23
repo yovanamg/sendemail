@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\Category;
-use BD;
+use DB;
 
 class LoginController extends Controller {
   protected $redirectTo = '/admin_home';

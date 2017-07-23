@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
-use BD;
+use DB;
 
 class ArticlesController extends Controller {
 
@@ -18,7 +18,8 @@ class ArticlesController extends Controller {
   }
 
   public function addarticle() {
-    return view('article.addarticle');
+    $categories = Category::all();
+    return view('article.addarticle', compact('categories'));
   }
 
   public function savearticle(Request $data) {
@@ -51,7 +52,8 @@ class ArticlesController extends Controller {
 
   public function editarticle($id) {
     $article = Article::find($id);
-    return view('article.editarticle', compact('article'));
+    $categories = Category::all();
+    return view('article.editarticle', compact('article', 'categories'));
   }
 
   public function updatearticle($id, Request $data){

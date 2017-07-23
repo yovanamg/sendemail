@@ -18,7 +18,7 @@
               class="form-control" 
               name="name" 
               id="name" 
-              placeholder="Descripción">
+              placeholder="Nombre">
           </div>
         </div>
         <div class="form-group">

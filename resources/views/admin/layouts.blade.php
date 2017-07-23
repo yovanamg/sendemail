@@ -63,7 +63,7 @@
           </a>
         </li>
          <li class="dropdown">
-          <a href="{{url('viewcategory')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewcategories')}}" role="button" aria-expanded="false">
             Categorías - Articulos
           </a>
         </li>

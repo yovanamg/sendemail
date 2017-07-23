@@ -44,13 +44,17 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('updatecategory/{id}', 'Category\CategoriesController@updatecategory');
   Route::get('deletecategory/{id}', 'Category\CategoriesController@deletecategory');
   Route::get('/pdfcategories','Category\CategoriesController@pdf');
+
+  Route::get('/addarticles/{id}', 'Category\CategoriesController@addarticles');
+  Route::get('/deleteartcat/{ida}/{idc}', 'Category\CategoriesController@deleteartcat');
+  Route::get('/addartcat/{ida}/{idc}','Category\CategoriesController@addartcat');
 });
 
 Route::group(['middleware' => 'admin_auth'], function() {
   Route::post('admin_logout', 'AdminAuth\LoginController@logout');
   Route::get('/admin_home', 'AdminAuth\LoginController@init');
+
   Route::get('viewarticles', 'Article\ArticlesController@viewmain');
-  
   Route::get('addarticle', 'Article\ArticlesController@addarticle');
   Route::post('savearticle', 'Article\ArticlesController@savearticle');
   Route::get('editarticle/{id}', 'Article\ArticlesController@editarticle');
@@ -58,13 +62,17 @@ Route::group(['middleware' => 'admin_auth'], function() {
   Route::get('deletearticle/{id}', 'Article\ArticlesController@deletearticle');
   Route::get('/pdfarticles', 'Article\ArticlesController@pdf');
 
-  Route::get('/viewcategory','Category\CategoriesController@viewcategory');
+  Route::get('/viewcategories','Category\CategoriesController@viewcategory');
   Route::get('addcategory', 'Category\CategoriesController@addcategory');
   Route::post('savecategory', 'Category\CategoriesController@savecategory');
   Route::get('editcategory/{id}', 'Category\CategoriesController@editcategory');
   Route::post('updatecategory/{id}', 'Category\CategoriesController@updatecategory');
   Route::get('deletecategory/{id}', 'Category\CategoriesController@deletecategory');
   Route::get('/pdfcategories','Category\CategoriesController@pdf');
+
+  Route::get('/addarticles/{id}', 'Category\CategoriesController@addarticles');
+  Route::get('/deleteartcat/{ida}/{idc}', 'Category\CategoriesController@deleteartcat');
+  Route::get('/addartcat/{ida}/{idc}','Category\CategoriesController@addartcat');
 });
 
 
