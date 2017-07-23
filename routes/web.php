@@ -49,6 +49,12 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('/deleteartcat/{ida}/{idc}', 'Category\CategoriesController@deleteartcat');
   Route::get('/addartcat/{ida}/{idc}','Category\CategoriesController@addartcat');
   Route::get('/pdfcatart/{id}','Category\CategoriesController@pdfcatart');
+
+  Route::get('/viewinventory','Inventory\InventoryController@viewinventory');
+  Route::get('addinventory', 'Inventory\InventoryController@addinventory');
+  Route::post('saveinventory', 'Inventory\InventoryController@saveinventory');
+  Route::get('/pdfinventory', 'Inventory\InventoryController@pdf');
+  Route::get('/totalarticles','Inventory\InventoryController@totalarticles');
 });
 
 Route::group(['middleware' => 'admin_auth'], function() {
@@ -75,6 +81,12 @@ Route::group(['middleware' => 'admin_auth'], function() {
   Route::get('/deleteartcat/{ida}/{idc}', 'Category\CategoriesController@deleteartcat');
   Route::get('/addartcat/{ida}/{idc}','Category\CategoriesController@addartcat');
   Route::get('/pdfcatart/{id}','Category\CategoriesController@pdfcatart');
+
+  Route::get('/viewinventory','Inventory\InventoryController@viewinventory');
+  Route::get('addinventory', 'Inventory\InventoryController@addinventory');
+  Route::post('saveinventory', 'Inventory\InventoryController@saveinventory');
+  Route::get('/pdfinventory', 'Inventory\InventoryController@pdf');
+  Route::get('/totalarticles','Inventory\InventoryController@totalarticles');
 });
 
 

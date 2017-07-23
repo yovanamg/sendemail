@@ -68,7 +68,7 @@
           </a>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewinventary')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewinventory')}}" role="button" aria-expanded="false">
             Inventario
           </a>
         </li>
