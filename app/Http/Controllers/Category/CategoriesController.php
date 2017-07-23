@@ -89,7 +89,6 @@ class CategoriesController extends Controller {
   }
 
   public function deleteartcat($ida,$idc) {
-    $categories = Category::all();
     DB::table('articles_categories')
     ->where ('articles_categories.article_id','=',$ida)
     ->where('articles_categories.category_id','=',$idc)
@@ -105,6 +104,26 @@ class CategoriesController extends Controller {
     $articles_categories->save();
 
     return redirect('/addarticles/'.$idc);
+  }
+
+  public function pdfcatart($id) {
+    $category=Category::find($id);
+    $list=DB::table('articles_categories')
+    ->join('articles','articles.id', '=', 'articles_categories.article_id')
+    ->where('articles_categories.category_id','=', $id)
+    ->pluck('articles.id');
+
+    $myItems=DB::table('articles')
+    ->whereIn('articles.id', $list)
+    ->join('articles_categories','articles.id', '=', 'articles_categories.article_id')
+    ->where('articles_categories.category_id', "=", $id)
+    ->select('articles.*')
+    ->get();
+    $vista = view('category.articlescategoriesPDF',compact('myItems','category'));
+    $pdf=\App::make('dompdf.wrapper');
+    $pdf->loadHTML($vista);
+    $pdf->setPaper('letter');
+    return $pdf->stream('Listadodecategoriasarticulos.pdf');
   }
 }
 

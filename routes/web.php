@@ -48,6 +48,7 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('/addarticles/{id}', 'Category\CategoriesController@addarticles');
   Route::get('/deleteartcat/{ida}/{idc}', 'Category\CategoriesController@deleteartcat');
   Route::get('/addartcat/{ida}/{idc}','Category\CategoriesController@addartcat');
+  Route::get('/pdfcatart/{id}','Category\CategoriesController@pdfcatart');
 });
 
 Route::group(['middleware' => 'admin_auth'], function() {
@@ -73,6 +74,7 @@ Route::group(['middleware' => 'admin_auth'], function() {
   Route::get('/addarticles/{id}', 'Category\CategoriesController@addarticles');
   Route::get('/deleteartcat/{ida}/{idc}', 'Category\CategoriesController@deleteartcat');
   Route::get('/addartcat/{ida}/{idc}','Category\CategoriesController@addartcat');
+  Route::get('/pdfcatart/{id}','Category\CategoriesController@pdfcatart');
 });
 
 

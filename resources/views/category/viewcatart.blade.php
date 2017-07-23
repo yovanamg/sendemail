@@ -47,6 +47,9 @@
                 <a href="{{url('/addarticles')}}/{{$a->id}}" class="btn btn-xs btn-info">
                   <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                 </a>
+                 <a href="{{url('/pdfcatart')}}/{{$a->id}}" class="btn btn-xs btn-warning">
+                  <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+                </a>
               </td>
             </tr>
           @endforeach
