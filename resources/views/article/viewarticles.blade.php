@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-12" style="padding: 0 7%">
       <div class="col-md-12">
-        <h1>Articulos</h1>
+        <h1 style="margin: 0">Articulos</h1>
       </div>
       <div class="col-md-12 text-right">
         <a href="{{url('/pdfarticles')}}" class="btn btn-warning">

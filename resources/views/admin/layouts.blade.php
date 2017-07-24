@@ -17,7 +17,7 @@
 <body>
   <div id="app">
     <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
+      <div style="margin-right: 10px">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
             <span class="sr-only">Toggle Navigation</span>
@@ -26,7 +26,7 @@
             <span class="icon-bar"></span>
           </button>
           <img class="col-md-8" src="http://planet12.com/p12v5/wp-content/uploads/2014/07/logo-boutique.png"
-            style="width: 150px; height: 75px">
+            style="width: 150px; height: 80px; padding: 0">
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -36,44 +36,44 @@
             class="dropdown-toggle" 
             data-toggle="dropdown" 
             role="button" 
-            aria-expanded="false">
+            aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Categorías 
             <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             @foreach($categories as $c)
               <li>
-                <a href="{{url('')}}">{{$c->name}}</a>
+                <a href="{{url('viewartcat')}}/{{$c->id}}">{{$c->name}}</a>
               </li>
             @endforeach
           </ul>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewhot')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewhot')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Lo mas vendido
           </a>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewclient')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewclient')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Clientes
           </a>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewarticles')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewarticles')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Articulos
           </a>
         </li>
          <li class="dropdown">
-          <a href="{{url('viewcategories')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewcategories')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Categorías - Articulos
           </a>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewinventory')}}" role="button" aria-expanded="false">
+          <a href="{{url('viewinventory')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Inventario
           </a>
         </li>
         <li class="dropdown">
-          <a href="#" role="button" aria-expanded="false">
+          <a href="#" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
             Promociones
           </a>
         </li>

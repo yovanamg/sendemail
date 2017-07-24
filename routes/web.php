@@ -55,6 +55,8 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('saveinventory', 'Inventory\InventoryController@saveinventory');
   Route::get('/pdfinventory', 'Inventory\InventoryController@pdf');
   Route::get('/totalarticles','Inventory\InventoryController@totalarticles');
+
+  Route::get('viewartcat/{id}', 'Category\CategoriesController@viewartcat');
 });
 
 Route::group(['middleware' => 'admin_auth'], function() {
@@ -87,6 +89,8 @@ Route::group(['middleware' => 'admin_auth'], function() {
   Route::post('saveinventory', 'Inventory\InventoryController@saveinventory');
   Route::get('/pdfinventory', 'Inventory\InventoryController@pdf');
   Route::get('/totalarticles','Inventory\InventoryController@totalarticles');
+
+  Route::get('viewartcat/{id}', 'Category\CategoriesController@viewartcat');
 });
 
 

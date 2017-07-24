@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
 use App\ArticleCategory;
-use DB;;
+use App\ArticleUnits;
+use DB;
 
 class CategoriesController extends Controller {
 
@@ -119,11 +120,32 @@ class CategoriesController extends Controller {
     ->where('articles_categories.category_id', "=", $id)
     ->select('articles.*')
     ->get();
+
     $vista = view('category.articlescategoriesPDF',compact('myItems','category'));
     $pdf=\App::make('dompdf.wrapper');
     $pdf->loadHTML($vista);
     $pdf->setPaper('letter');
     return $pdf->stream('Listadodecategoriasarticulos.pdf');
+  }
+
+  public function viewartcat($id) {
+    $categories = Category::all();
+    $articles_units = ArticleUnits::all();
+
+    $list=DB::table('articles_categories')
+    ->join('articles','articles.id', '=', 'articles_categories.article_id')
+    ->where('articles_categories.category_id','=', $id)
+    ->pluck('articles.id');
+
+    $myItems=DB::table('articles')
+    ->whereIn('articles.id', $list)
+    ->join('articles_categories','articles.id', '=', 'articles_categories.article_id')
+    ->where('articles_categories.category_id', "=", $id)
+    ->select('articles.*')
+    ->get();
+
+
+    return view('category.viewartcat', compact('categories','myItems', 'articles_units'));
   }
 }
 
