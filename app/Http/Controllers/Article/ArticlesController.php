@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Article;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Article;
 use App\Category;
 use DB;
@@ -98,6 +99,26 @@ class ArticlesController extends Controller {
     $pdf->loadHTML($vista);
     $pdf->setPaper('letter');
     return $pdf->stream('ListadoArticulos.pdf');
+  }
+
+  public function import() {
+    $articles = Article::all();
+    $categories = Category::all();
+    Excel::load('article.csv', function($reader) {
+
+    foreach ($reader->get() as $article) {
+      Article::create([
+        'code' => $article->code,
+        'description' =>$article->description,
+        'price' =>$article->price,
+        'costo' =>$article->costo,
+        'name' =>$article->name
+      ]);
+    }
+  });
+
+  return view('article.viewarticles', compact('articles','categories'));
+    
   }
 }
 

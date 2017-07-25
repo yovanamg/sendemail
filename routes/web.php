@@ -61,6 +61,7 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('commentary/{id}', 'Category\CategoriesController@commentary');
   Route::get('comments/{id}', 'Category\CategoriesController@comments');
   Route::get('/deletecommentary/{id}', 'Category\CategoriesController@deletecommentary');
+  Route::get('import', 'Article\ArticlesController@import');
 });
 
   Route::group(['middleware' => 'admin_auth'], function() {
@@ -99,6 +100,8 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('commentary/{id}', 'Category\CategoriesController@commentary');
   Route::get('comments/{id}', 'Category\CategoriesController@comments');
   Route::get('/deletecommentary/{id}', 'Category\CategoriesController@deletecommentary');
+  Route::get('import', 'Article\ArticlesController@import');
+
 });
 
 

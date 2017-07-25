@@ -21,6 +21,13 @@
             style="vertical-align: initial;"></span>
           &nbsp;&nbsp;Agregar artículo
         </a>
+        <a href="{{url('import')}}" class="btn btn-success">
+          <span 
+            class="glyphicon glyphicon-ok" 
+            aria-hidden="true"
+            style="vertical-align: initial;"></span>
+          &nbsp;&nbsp;CSV
+        </a>
       </div>
       <div class="col-md-12">
         <hr>
