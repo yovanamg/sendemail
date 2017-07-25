@@ -27,7 +27,7 @@
             </div>
             <hr>
             <p class="text-right">
-              <a href="#" class="btn btn-primary" role="button">Ver más</a> 
+              <a href="{{url('viewproduct')}}/{{$a->id}}" class="btn btn-primary" role="button">Ver más</a> 
               <a href="#" class="btn btn-success" role="button" disabled="{{}}">Comprar</a>
             </p>
           </div>

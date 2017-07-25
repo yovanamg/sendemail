@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
 use App\ArticleCategory;
+use App\Commentary;
 use App\ArticleUnits;
 use DB;
 
@@ -144,8 +145,29 @@ class CategoriesController extends Controller {
     ->select('articles.*')
     ->get();
 
-
     return view('category.viewartcat', compact('categories','myItems', 'articles_units'));
+  }
+
+  public function viewproduct($id) {
+    $categories = Category::all();
+    $articles_units = ArticleUnits::find($id);
+    $articles = Article::find($id);
+    $comments= Commentary::all();
+
+    $costo = money_format('%.2n', $articles->costo);
+    
+    return view('category.viewproduct', compact('categories','articles', 'articles_units', 'costo', 'comments'));
+  }
+
+  public function commentary($id, Request $data) {
+    $commentary = new Commentary();
+    $commentary->article_id=$id;
+    $commentary->stars=$data->input('stars');
+    $commentary->commentary=$data->input('commentary');
+    $commentary->email=$data->input('email');
+    $commentary->save();
+
+    return redirect('/viewproduct/'.$id);
   }
 }
 

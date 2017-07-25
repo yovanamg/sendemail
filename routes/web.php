@@ -57,9 +57,11 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('/totalarticles','Inventory\InventoryController@totalarticles');
 
   Route::get('viewartcat/{id}', 'Category\CategoriesController@viewartcat');
+  Route::get('viewproduct/{id}', 'Category\CategoriesController@viewproduct');
+  Route::post('commentary/{id}', 'Category\CategoriesController@commentary');
 });
 
-Route::group(['middleware' => 'admin_auth'], function() {
+  Route::group(['middleware' => 'admin_auth'], function() {
   Route::post('admin_logout', 'AdminAuth\LoginController@logout');
   Route::get('/admin_home', 'AdminAuth\LoginController@init');
 
@@ -91,6 +93,8 @@ Route::group(['middleware' => 'admin_auth'], function() {
   Route::get('/totalarticles','Inventory\InventoryController@totalarticles');
 
   Route::get('viewartcat/{id}', 'Category\CategoriesController@viewartcat');
+  Route::get('viewproduct/{id}', 'Category\CategoriesController@viewproduct');
+  Route::post('commentary/{id}', 'Category\CategoriesController@commentary');
 });
 
 

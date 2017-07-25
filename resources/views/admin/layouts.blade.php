@@ -36,7 +36,7 @@
             class="dropdown-toggle" 
             data-toggle="dropdown" 
             role="button" 
-            aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
+            aria-expanded="false" style="font-weight: 500; font-size: 16px;">
             Categorías 
             <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -48,37 +48,48 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewhot')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
+          <a href="{{url('viewhot')}}" role="button" aria-expanded="false" style="font-weight: 500; font-size: 16px;">
             Lo mas vendido
           </a>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewclient')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
-            Clientes
-          </a>
-        </li>
-        <li class="dropdown">
-          <a href="{{url('viewarticles')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
-            Articulos
-          </a>
-        </li>
-         <li class="dropdown">
-          <a href="{{url('viewcategories')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
-            Categorías - Articulos
-          </a>
-        </li>
-        <li class="dropdown">
-          <a href="{{url('viewinventory')}}" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
-            Inventario
-          </a>
-        </li>
-        <li class="dropdown">
-          <a href="#" role="button" aria-expanded="false" style="padding-left: 0; font-weight: 500; font-size: 16px;">
+          <a href="#" role="button" aria-expanded="false" style="font-weight: 500; font-size: 16px;">
             Promociones
           </a>
         </li>
+        <li class="dropdown">
+          <a href="#" 
+            class="dropdown-toggle" 
+            data-toggle="dropdown" 
+            role="button" 
+            aria-expanded="false" style="font-weight: 500; font-size: 16px;">
+            Configuraciones 
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="dropdown">
+              <a href="{{url('viewarticles')}}" role="button" aria-expanded="false">
+                Articulos
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="{{url('viewcategories')}}" role="button" aria-expanded="false">
+                Categorías - Articulos
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="{{url('viewclient')}}" role="button" aria-expanded="false">
+                Clientes
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="{{url('viewinventory')}}" role="button" aria-expanded="false">
+                Inventario
+              </a>
+            </li>
           </ul>
-            <ul class="nav navbar-nav navbar-right">
+        </li>
+          </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 10px">
               @if (Auth::guard('web_admin')->guest())
                 <li><a href="{{ url('/admin_login') }}">Entrar</a></li>
                 <li><a href="{{ url('/admin_register') }}">Registrarte</a></li>
