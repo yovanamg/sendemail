@@ -119,8 +119,33 @@
     @yield('content')
   </div>
   <script src="/js/app.js"></script>
-   <footer class="text-center">
-    <hr>
-    Yovana Mata 2017 &copy;
+  <footer class="text-center" style="height: 250px; background: #9d8686;">
+   <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-4" style="padding: 20px 100px">
+          <p class="text-left"><img src="http://www.freeiconspng.com/uploads/facebook-f-logo-transparent-facebook-f-22.png" style="width: 20px; height: 20px">&nbsp;&nbsp;Facebook</p>
+          <p class="text-left"><img src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c521.png" style="width: 20px; height: 20px">&nbsp;&nbsp;Instagram</p>
+          <p class="text-left"><img src="http://www.freeiconspng.com/uploads/gmail-icon-5.png" style="width: 20px; height: 20px">&nbsp;&nbsp;Email</p>
+          <p class="text-left"><img src="http://cougarcourier.com/wp-content/uploads/2015/12/bucsnfl-snapcode.png" style="width: 20px; height: 20px">&nbsp;&nbsp;Snap</p>
+          <p class="text-left"><img src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" style="width: 20px; height: 20px">&nbsp;&nbsp;Twitter</p>
+        </div>
+        <div class="col-md-4 text-center" style="color: #ffffff; padding-top: 60px">
+           Yovana Mata 2017 &copy;
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-center" style="color: #ffffff; margin-top: 0">Boutique Design</h3>
+          <p style="margin-bottom: 0">Contacto:</p>
+          <label>Correo:</label> <p style="margin-bottom: 0">boutique.design@gmail.com</p>
+          <label>Telefono:</label> <p style="margin-bottom: 0">6677673939</p>
+          <label>Dirección:</label> <p style="margin-bottom: 0">Calle Miguel Hidalgo #714 Fracc. Villa del Real C.P. 80247</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
+
+
+
+

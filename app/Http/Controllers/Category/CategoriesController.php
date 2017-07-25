@@ -169,6 +169,23 @@ class CategoriesController extends Controller {
 
     return redirect('/viewproduct/'.$id);
   }
+
+  public function comments($id) {
+    $categories = Category::all();
+    $article = Article::find($id);
+    $comments = Commentary::all();
+
+    return view('category.viewcomments', compact('categories', 'comments', 'article'));
+  }
+
+  public function deletecommentary($id) {
+    $comments = Commentary::find($id);
+    $idArticle = $comments->article_id;
+    $comments->delete();
+
+
+    return redirect('/comments/'.$idArticle);
+  }
 }
 
 

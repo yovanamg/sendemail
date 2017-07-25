@@ -52,6 +52,9 @@
                 <a href="{{url('/deletearticle')}}/{{$a->id}}" class="btn btn-xs btn-danger">
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </a>
+                <a href="{{url('/comments')}}/{{$a->id}}" class="btn btn-xs btn-info">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a>
               </td>
             </tr>
           @endforeach

@@ -59,6 +59,8 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('viewartcat/{id}', 'Category\CategoriesController@viewartcat');
   Route::get('viewproduct/{id}', 'Category\CategoriesController@viewproduct');
   Route::post('commentary/{id}', 'Category\CategoriesController@commentary');
+  Route::get('comments/{id}', 'Category\CategoriesController@comments');
+  Route::get('/deletecommentary/{id}', 'Category\CategoriesController@deletecommentary');
 });
 
   Route::group(['middleware' => 'admin_auth'], function() {
@@ -95,6 +97,8 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('viewartcat/{id}', 'Category\CategoriesController@viewartcat');
   Route::get('viewproduct/{id}', 'Category\CategoriesController@viewproduct');
   Route::post('commentary/{id}', 'Category\CategoriesController@commentary');
+  Route::get('comments/{id}', 'Category\CategoriesController@comments');
+  Route::get('/deletecommentary/{id}', 'Category\CategoriesController@deletecommentary');
 });
 
 
