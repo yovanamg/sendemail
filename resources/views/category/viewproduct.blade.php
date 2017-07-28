@@ -18,7 +18,7 @@
       </div>
       <div class="col-md-6">
         <a 
-          href="#" 
+          href="{{url('orden')}}/{{$articles->id}}" 
           class="btn btn-success" 
           role="button" 
           style="margin-top: 50%;">

@@ -25,7 +25,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <img class="col-md-8" src="http://planet12.com/p12v5/wp-content/uploads/2014/07/logo-boutique.png"
+          <img class="col-md-8" src="https://s-media-cache-ak0.pinimg.com/736x/4f/35/cc/4f35ccd8d9fcc8f568a8f9f2910e6953--boutique-logo-womens-fashion.jpg"
             style="width: 150px; height: 80px; padding: 0">
         </div>
 
@@ -48,45 +48,24 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="{{url('viewhot')}}" role="button" aria-expanded="false" style="font-weight: 500; font-size: 16px;">
-            Lo mas vendido
+          <a href="{{url('viewarticles')}}" role="button" aria-expanded="false">
+            Articulos
           </a>
         </li>
         <li class="dropdown">
-          <a href="#" role="button" aria-expanded="false" style="font-weight: 500; font-size: 16px;">
-            Promociones
+          <a href="{{url('viewimgart')}}" role="button" aria-expanded="false">
+            Imagenes - Articulos
           </a>
         </li>
         <li class="dropdown">
-          <a href="#" 
-            class="dropdown-toggle" 
-            data-toggle="dropdown" 
-            role="button" 
-            aria-expanded="false" style="font-weight: 500; font-size: 16px;">
-            Configuraciones 
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li class="dropdown">
-              <a href="{{url('viewarticles')}}" role="button" aria-expanded="false">
-                Articulos
-              </a>
-            </li>
-            <li class="dropdown">
-              <a href="{{url('viewcategories')}}" role="button" aria-expanded="false">
-                Categorías - Articulos
-              </a>
-            </li>
-            <li class="dropdown">
-              <a href="{{url('viewclient')}}" role="button" aria-expanded="false">
-                Clientes
-              </a>
-            </li>
-            <li class="dropdown">
-              <a href="{{url('viewinventory')}}" role="button" aria-expanded="false">
-                Inventario
-              </a>
-            </li>
-          </ul>
+          <a href="{{url('viewcategories')}}" role="button" aria-expanded="false">
+            Categorías - Articulos
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="{{url('viewinventory')}}" role="button" aria-expanded="false">
+            Inventario
+          </a>
         </li>
           </ul>
             <ul class="nav navbar-nav navbar-right" style="margin-right: 10px">

@@ -62,6 +62,10 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('comments/{id}', 'Category\CategoriesController@comments');
   Route::get('/deletecommentary/{id}', 'Category\CategoriesController@deletecommentary');
   Route::get('import', 'Article\ArticlesController@import');
+
+  Route::get('viewimgart', 'Image\ImageController@viewimgart');
+  Route::post('storage/create', 'Image\ImageController@save');
+  Route::get('orden/{id}', 'Orden\OrdenesController@orden');
 });
 
   Route::group(['middleware' => 'admin_auth'], function() {
@@ -102,6 +106,9 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('/deletecommentary/{id}', 'Category\CategoriesController@deletecommentary');
   Route::get('import', 'Article\ArticlesController@import');
 
+  Route::get('viewimgart', 'Image\ImageController@viewimgart');
+  Route::post('storage/create', 'Image\ImageController@save');
+  Route::get('orden/{id}', 'Orden\OrdenesController@orden');
 });
 
 

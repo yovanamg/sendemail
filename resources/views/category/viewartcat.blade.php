@@ -7,7 +7,7 @@
     @foreach($myItems as $a)
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="..." alt="...">
+          <img src="http://eldiariodelanena.com/wp-content/uploads/2016/04/blusas-dama-camisas-bluson-de-chifon-ultima-moda-711411-MLV20547707013_012016-F.jpg">
           <div class="caption">
             <h3>{{$a->name}}</h3>
             <p>{{$a->description}}</p>
@@ -28,7 +28,7 @@
             <hr>
             <p class="text-right">
               <a href="{{url('viewproduct')}}/{{$a->id}}" class="btn btn-primary" role="button">Ver más</a> 
-              <a href="#" class="btn btn-success" role="button" disabled="{{}}">Comprar</a>
+              <a href="{{url('orden')}}/{{$a->id}}" class="btn btn-success" role="button">Comprar</a>
             </p>
           </div>
         </div>
