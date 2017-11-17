@@ -12,7 +12,7 @@
       <a 
         class="btn-floating"
         style="background: #7c3131;"
-        href="{{ url('/addUser') }}"
+        href="{{ url('/add-user') }}"
         onclick="">
         <i class="material-icons">add</i>
       </a>
