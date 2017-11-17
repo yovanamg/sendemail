@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
-use App\Category;
 use DB;
 
 class LoginController extends Controller {
@@ -19,9 +18,7 @@ class LoginController extends Controller {
   }
 
   public function init() {
-      $categories = Category::all();
-
-      return view('admin.home', compact('categories'));
+      return view('admin.home');
     }
 
   public function showLoginForm() {

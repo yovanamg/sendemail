@@ -29,7 +29,10 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('admin_password/reset', 'AdminAuth\ResetPasswordController@reset');
   Route::get('Inicio', 'HomeController@home');
 
-  Route::get('viewarticles', 'Article\ArticlesController@viewmain');
+  Route::get('user', 'Users\UserController@viewmain');
+
+
+
   Route::get('addarticle', 'Article\ArticlesController@addarticle');
   Route::post('savearticle', 'Article\ArticlesController@savearticle');
   Route::get('editarticle/{id}', 'Article\ArticlesController@editarticle');
@@ -71,7 +74,9 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::group(['middleware' => 'admin_auth'], function() {
   Route::post('admin_logout', 'AdminAuth\LoginController@logout');
   Route::get('/admin_home', 'AdminAuth\LoginController@init');
-
+  
+  Route::get('user', 'Users\UserController@viewmain');
+  
   Route::get('viewarticles', 'Article\ArticlesController@viewmain');
   Route::get('addarticle', 'Article\ArticlesController@addarticle');
   Route::post('savearticle', 'Article\ArticlesController@savearticle');
