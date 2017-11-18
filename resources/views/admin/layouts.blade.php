@@ -7,7 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Seguros y finanzas</title>
     <!-- <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}"> -->
-    <script src="{{asset("js/jquery-3.2.1.js")}}"></script> <link href="/css/app.css" rel="stylesheet">
+    <script src="{{asset("js/jquery-3.2.1.js")}}"></script> 
+    <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script>
@@ -54,6 +55,9 @@
           <div class="col s6 m6 l3">
             <div class="col s12 m12 l12 color-hover">
               <a href="{{ url('/user') }}">Usuarios</a>
+            </div>
+            <div class="col s12 m12 l12 color-hover">
+              <a href="{{ url('/customer') }}">Usuarios</a>
             </div>
           </div>
           <div class="col s4 m4 l7 p-0">

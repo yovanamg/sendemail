@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('contenido')
+<link href="/css/users.css" rel="stylesheet">
 <style>
 
 .btn-login {
@@ -43,7 +44,7 @@
               name="email"
               value="{{ old('email') }}"
               required
-              class="validate">
+              class="validate input-login">
               @if ($errors->has('email'))
                 <span class="help-block">
                   <strong>{{ $errors->first('email') }}</strong>
@@ -57,7 +58,7 @@
             <input 
               id="password"
               type="password" 
-              class="validate"
+              class="validate input-login"
               name="password" 
               required>
               @if ($errors->has('password'))

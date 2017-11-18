@@ -1,0 +1,81 @@
+.title-user {
+  padding: 2% 4% !important;
+  font-size: 20px;
+  color: #686262;
+  letter-spacing: 0.6px;
+  font-weight: 500;
+}
+
+.input-login input.valid:not([type]), input.valid:not([type]):focus, input[type=text].valid:not(.browser-default), input[type=text].valid:not(.browser-default):focus, input[type=password].valid:not(.browser-default), input[type=password].valid:not(.browser-default):focus, input[type=email].valid:not(.browser-default), input[type=email].valid:not(.browser-default):focus, input[type=url].valid:not(.browser-default), input[type=url].valid:not(.browser-default):focus, input[type=time].valid:not(.browser-default), input[type=time].valid:not(.browser-default):focus, input[type=date].valid:not(.browser-default), input[type=date].valid:not(.browser-default):focus, input[type=datetime].valid:not(.browser-default), input[type=datetime].valid:not(.browser-default):focus, input[type=datetime-local].valid:not(.browser-default), input[type=datetime-local].valid:not(.browser-default):focus, input[type=tel].valid:not(.browser-default), input[type=tel].valid:not(.browser-default):focus, input[type=number].valid:not(.browser-default), input[type=number].valid:not(.browser-default):focus, input[type=search].valid:not(.browser-default), input[type=search].valid:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown {
+  border-bottom: 1px solid #717572 !important;
+  -webkit-box-shadow: 0 1px 0 0 #717572 !important;
+  box-shadow: 0 1px 0 0 #717572 !important;
+}
+
+.width-modal {
+  max-width: 40% !important;
+  max-height: 350px !important;
+}
+.width-delete {
+  max-width: 40% !important;
+  max-height: 127px !important;
+}
+
+.btn:hover, .btn-large:hover {
+  background-color: #7D3030;
+  color: white;
+}
+.icons {
+  cursor: pointer;
+  color: #626b6e;
+}
+
+.m-b-0 {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.topbar-delete {
+  background: #706b6ba6;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.title-add {
+  margin: 0;
+  padding-left: 3%;
+}
+
+.topbar-add {
+  background: #7D3030;
+  color: white;
+  margin-bottom: 15px;
+}
+.btn-save {
+  font-size: 15px;
+  background-color: #7D3030;
+  text-transform: none;
+  letter-spacing: 0.9px;
+  padding: 0 10px;
+  border-radius: 7px;
+} 
+
+.btn-cancel {
+  margin-right: 5px;
+  font-size: 15px;
+  background: #7d7979;
+  text-transform: none;
+  letter-spacing: 0.9px;
+  padding: 0 10px;
+  border-radius: 7px;
+}
+
+.btn-cancel:hover {
+  background: #7d7979;
+  color: white;
+}
+
+.save:hover .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  box-shadow: none;
+}
