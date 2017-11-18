@@ -7,7 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Seguros y finanzas</title>
     <!-- <link rel="stylesheet" href="{{asset("css/bootstrap.css")}}"> -->
-    <script src="{{asset("js/jquery-3.2.1.js")}}"></script> 
+    <!-- <script src="{{asset("js/jquery-3.2.1.js")}}"></script>  -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -54,10 +56,15 @@
           </div>
           <div class="col s6 m6 l3">
             <div class="col s12 m12 l12 color-hover">
-              <a href="{{ url('/user') }}">Usuarios</a>
-            </div>
-            <div class="col s12 m12 l12 color-hover">
-              <a href="{{ url('/customer') }}">Usuarios</a>
+              <div class="col s4 m4 l4">
+                <a href="{{ url('/user') }}">Usuarios</a>
+              </div>
+              <div class="col s4 m4 l4">
+                <a href="{{ url('/customer') }}">Clientes</a>
+              </div>
+              <div class="col s4 m4 l4">
+                <a href="{{ url('/report') }}">Reportes</a>
+              </div>
             </div>
           </div>
           <div class="col s4 m4 l7 p-0">

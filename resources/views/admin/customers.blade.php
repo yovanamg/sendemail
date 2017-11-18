@@ -21,7 +21,7 @@
     <div 
       class="col s12 m12 l12 right-align btn-add" 
       style="padding-right: 5% !important; margin-top: 2% !important;">
-      <label style="padding-right: 10px !important;">Agregar usuario</label>
+      <label style="padding-right: 10px !important;">Agregar cliente</label>
       <a
         type="button"
         class="btn-floating waves-effect waves-light btn modal-trigger"
@@ -35,9 +35,10 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Nombre usuario</th>
+            <th>Empresa</th>
             <th>Correo electrónico</th>
             <th>Teléfono</th>
+            <th>Base de datos</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -45,6 +46,7 @@
           <tr>
             <td>Alvin</td>
             <td>Eclair</td>
+            <td>Prueba</td>
             <td>6677673939</td>
             <td>
               <a 
@@ -65,6 +67,7 @@
           <tr>
             <td>Alan</td>
             <td>Jellybean</td>
+            <td>Prueba</td>
             <td>6677673939</td>
             <td>
               <i class="material-icons">&#xE254;</i>
@@ -73,6 +76,7 @@
           </tr>
           <tr>
             <td>Jonathan</td>
+            <td>Pruebaaa</td>
             <td>Lollipop</td>
             <td>6677673939</td>
             <td>
@@ -88,14 +92,14 @@
 
   <!-- Modal -->
   <div 
-    class="modal fade width-modal" 
+    class="modal fade width-customer" 
     tabindex="-1" 
     id="add-user"
     role="dialog"
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-        <p class="title-add">Agregar usuario</p>
+        <p class="title-add">Agregar cliente</p>
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
@@ -108,7 +112,7 @@
                     type="text" 
                     name="cDescripcion"
                     class="validate m-b-0">
-                  <label for="cDescripcion">Nombre</label>
+                  <label for="cDescripcion">Empresa</label>
                 </div>
               </div>
               <div class="row m-b-0">
@@ -129,6 +133,16 @@
                     name="telephone"
                     class="validate m-b-0">
                   <label for="telephone">Teléfono</label>
+                </div>
+              </div>
+              <div class="row m-b-0">
+                <div class="input-field col s12">
+                  <input 
+                    id="database" 
+                    type="text" 
+                    name="database"
+                    class="validate m-b-0">
+                  <label for="database">Base de datos</label>
                 </div>
               </div>
             </div>
@@ -155,7 +169,7 @@
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-      <p class="title-add">Desea eliminar este usuario?</p>
+      <p class="title-add">Desea eliminar este cliente?</p>
       </div>
         <div class="row">
           <div class="col s12 right-align">
@@ -171,14 +185,14 @@
   </div>
 
   <div 
-    class="modal fade width-modal" 
+    class="modal fade width-customer" 
     tabindex="-1" 
     id="update-user"
     role="dialog" 
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-        <p class="title-add">Editar usuario</p>
+        <p class="title-add">Editar cliente</p>
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
@@ -191,7 +205,7 @@
                     type="text" 
                     name="cDescripcion"
                     class="validate m-b-0">
-                  <label for="cDescripcion">Nombre</label>
+                  <label for="cDescripcion">Empresa</label>
                 </div>
               </div>
               <div class="row m-b-0">
@@ -212,6 +226,16 @@
                     name="telephone"
                     class="validate m-b-0">
                   <label for="telephone">Teléfono</label>
+                </div>
+              </div>
+              <div class="row m-b-0">
+                <div class="input-field col s12">
+                  <input 
+                    id="database" 
+                    type="text" 
+                    name="database"
+                    class="validate m-b-0">
+                  <label for="database">Base de datos</label>
                 </div>
               </div>
             </div>

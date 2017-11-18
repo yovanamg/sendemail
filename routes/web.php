@@ -30,6 +30,8 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('Inicio', 'HomeController@home');
 
   Route::get('user', 'Users\UserController@viewmain');
+  Route::get('customer', 'Customers\CustomerController@viewmain');
+  Route::get('report', 'Reports\ReportController@viewmain');
 
 });
 
@@ -38,6 +40,9 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('/admin_home', 'AdminAuth\LoginController@init');
   
   Route::get('user', 'Users\UserController@viewmain');
+  Route::get('customer', 'Customers\CustomerController@viewmain');
+  Route::get('report', 'Reports\ReportController@viewmain');
+  
 
 });
 
