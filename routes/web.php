@@ -33,6 +33,9 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('customer', 'Customers\CustomerController@viewmain');
   Route::get('report', 'Reports\ReportController@viewmain');
 
+  Route::post('saveuser', 'Users\UserController@saveuser');
+  Route::get('edituser/{id}', 'Users\UserController@edituser');
+
 });
 
   Route::group(['middleware' => 'admin_auth'], function() {
@@ -42,6 +45,9 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('user', 'Users\UserController@viewmain');
   Route::get('customer', 'Customers\CustomerController@viewmain');
   Route::get('report', 'Reports\ReportController@viewmain');
+
+  Route::post('saveuser', 'Users\UserController@saveuser');
+  Route::get('edituser/{id}', 'Users\UserController@edituser');
   
 
 });

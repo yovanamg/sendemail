@@ -16,6 +16,9 @@ class Admins extends Migration {
       $table->string('name');
       $table->string('email')->unique();
       $table->string('password');
+      $table->string('sucursal');
+      $table->string('telephone');
+      $table->string('rol_id');
       $table->rememberToken();
       $table->timestamps();
     });
@@ -30,3 +33,4 @@ class Admins extends Migration {
     Schema::dropIfExists('admins');
   }
 }
+

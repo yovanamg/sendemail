@@ -18,12 +18,19 @@ class RegisterController extends Controller {
 
   public function register(Request $request) {
     $this->validator($request->all())->validate();
-
     $admin = $this->create($request->all());
-
     $this->guard()->login($admin);
 
     return redirect($this->redirectPath);
+  }
+
+  public function saveuser(Request $request) {
+    $this->validator($request->all())->validate();
+    $admin = $this->create($request->all());
+    $this->guard()->login($admin);
+
+    return redirect($this->redirectPath);
+    return redirect('/user');
   }
 
   protected function validator(array $data) {
@@ -31,6 +38,7 @@ class RegisterController extends Controller {
         'name' => 'required|max:255',
         'email' => 'required|email|max:255|unique:admins',
         'password' => 'required|min:6|confirmed',
+        
     ]);
   }
 
@@ -38,6 +46,9 @@ class RegisterController extends Controller {
     return Admin::create([
         'name' => $data['name'],
         'email' => $data['email'],
+        'sucursal' => 'hola',
+        'rol_id' => '6',
+        'telephone' => $data['telephone'],
         'password' => bcrypt($data['password']),
     ]);
   }

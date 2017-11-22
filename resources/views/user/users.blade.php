@@ -42,44 +42,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>6677673939</td>
-            <td>
-              <a 
-                type="button"
-                class="icons"
-                onclick="editUser()"> 
-              <i class="material-icons">&#xE254;</i>
-              </a> 
-              <a 
-                type="button" 
-                class="icons"
-                onclick="deleteUser()">
-                <i class="material-icons">&#xE872;</i>
-              </a> 
-              
+          @foreach($users as $a)
+            <tr>
+              <td>{{$a->name}}</td>
+              <td>{{$a->email}}</td>
+              <td>{{$a->telephone}}</td>
+              <td>
+                <a 
+                  type="button"
+                  class="icons"
+                  data-toggle="modal"
+                  data-target="#update-user"
+                  href="{{url('/edituser')}}/{{$a->id}}"> 
+                  <i class="material-icons">&#xE254;</i>
+                </a> 
+                <a 
+                  type="button" 
+                  class="icons"
+                  onclick="deleteUser()">
+                  <i class="material-icons">&#xE872;</i>
+                </a>
               </td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>6677673939</td>
-            <td>
-              <i class="material-icons">&#xE254;</i>
-              <i class="material-icons">&#xE872;</i>
-            </td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>6677673939</td>
-            <td>
-              <i class="material-icons">&#xE254;</i>
-              <i class="material-icons">&#xE872;</i>
-            </td>            
-          </tr>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -99,16 +84,20 @@
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
-          <form class="col s12">
+          <form 
+            class="col s12"
+            action="{{url('/saveuser')}}" 
+            method="POST">
+            <input id="token" type="hidden" name="_token" value="{{csrf_token() }}">
             <div class="row">
               <div class="row m-b-0">
                 <div class="input-field col s12">
                   <input 
-                    id="cDescripcion" 
+                    id="name" 
                     type="text" 
-                    name="cDescripcion"
+                    name="name"
                     class="validate m-b-0">
-                  <label for="cDescripcion">Nombre</label>
+                  <label for="name">Nombre</label>
                 </div>
               </div>
               <div class="row m-b-0">
@@ -116,7 +105,7 @@
                   <input 
                     id="email" 
                     type="email" 
-                    name="cLogin"
+                    name="email"
                     class="validate m-b-0">
                   <label for="email">Correo electrónico</label>
                 </div>
@@ -138,7 +127,7 @@
                   class="btn btn-cancel">
                   Cancelar
                 </button>
-                <button class="btn btn-save save-hover">Guardar</button>
+                <button class="btn btn-save save-hover" type="submit">Guardar</button>
               </div>
             </div>
           </form>
@@ -182,7 +171,11 @@
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
-          <form class="col s12">
+        <form 
+            class="col s12"
+            action="{{url('/updateuser')}}" 
+            method="POST">
+            <input id="token" type="hidden" name="_token" value="{{csrf_token() }}">
             <div class="row">
               <div class="row m-b-0">
                 <div class="input-field col s12">
