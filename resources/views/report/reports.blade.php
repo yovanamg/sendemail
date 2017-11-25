@@ -39,8 +39,13 @@
       </div>
 
       <div class="m-t-20 col s12 m12 l12 right-align">
+        
         <button class="btn btn-save">Generar template</button>
-        <button class="btn btn-save">Generar reporte</button>
+        <a 
+          href="{{url('/viewreport')}}"
+          class="btn btn-save">
+          <span>Generar reporte</span>
+        </a>
       </div>
     </div>
   </div>

@@ -14,4 +14,8 @@ class ReportController extends Controller {
     $emisores = Emisores::all();
     return view('report.reports', compact('emisores'));
   }
+
+  public function viewreport() {
+    return view('report.pivot');
+  }
 }

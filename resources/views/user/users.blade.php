@@ -12,6 +12,7 @@
 
     var editUser = function(user) {
       $('#btn-save-edit').click(function() {
+        console.log('heeeeeey')
         document.getElementById('edit-id').action = "/update_user/" + user.id;
       });
       
