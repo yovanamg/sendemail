@@ -10,18 +10,32 @@
       $(document).ready(function(){ $('#add-user').modal();});
     }
 
-    var editUser = function() {
-      $(document).ready(function(){ $('#update-user').modal();});
+    var editUser = function(par1) {
+      $(document).ready(function(){
+        var data = par1;
+        $('#update-user').modal();
+        $("#edit-name").val(data.name);
+        $("#edit-email").val(data.email);
+        $("#edit-telephone").val(data.telephone);
+      });
+      hola(data)
     }
+
+    var hola = function(data) {
+    console.log(data)      
+      formEditUser.action = "/update_user/{userId}";
+    }
+
     var deleteUser = function() {
       $(document).ready(function(){ $('#delete-user').modal();});
     }
   </script>
+
   <div class="row">
     <div 
       class="col s12 m12 l12 right-align btn-add" 
       style="padding-right: 5% !important; margin-top: 2% !important;">
-      <label style="padding-right: 10px !important;">Agregar cliente</label>
+      <label style="padding-right: 10px !important;">Agregar usuario</label>
       <a
         type="button"
         class="btn-floating waves-effect waves-light btn modal-trigger"
@@ -35,55 +49,34 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Empresa</th>
+            <th>Nombre usuario</th>
             <th>Correo electrónico</th>
             <th>Teléfono</th>
-            <th>Base de datos</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>Prueba</td>
-            <td>6677673939</td>
-            <td>
-              <a 
-                type="button"
-                class="icons"
-                onclick="editUser()"> 
-              <i class="material-icons">&#xE254;</i>
-              </a> 
-              <a 
-                type="button" 
-                class="icons"
-                onclick="deleteUser()">
-                <i class="material-icons">&#xE872;</i>
-              </a> 
-              
+          @foreach($users as $a)
+            <tr>
+              <td>{{$a->name}}</td>
+              <td>{{$a->email}}</td>
+              <td>{{$a->telephone}}</td>
+              <td>
+                <a 
+                  type="button"
+                  class="icons"
+                  onclick="editUser({{$a}})"> 
+                  <i class="material-icons">&#xE254;</i>
+                </a> 
+                <a 
+                  type="button" 
+                  class="icons"
+                  onclick="deleteUser()">
+                  <i class="material-icons">&#xE872;</i>
+                </a>
               </td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>Prueba</td>
-            <td>6677673939</td>
-            <td>
-              <i class="material-icons">&#xE254;</i>
-              <i class="material-icons">&#xE872;</i>
-            </td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Pruebaaa</td>
-            <td>Lollipop</td>
-            <td>6677673939</td>
-            <td>
-              <i class="material-icons">&#xE254;</i>
-              <i class="material-icons">&#xE872;</i>
-            </td>            
-          </tr>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -92,27 +85,31 @@
 
   <!-- Modal -->
   <div 
-    class="modal fade width-customer" 
+    class="modal fade width-modal" 
     tabindex="-1" 
     id="add-user"
     role="dialog"
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-        <p class="title-add">Agregar cliente</p>
+        <p class="title-add">Agregar usuario</p>
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
-          <form class="col s12">
+          <form 
+            class="col s12"
+            action="{{url('/save_user')}}" 
+            method="POST">
+            <input id="token" type="hidden" name="_token" value="{{csrf_token() }}">
             <div class="row">
               <div class="row m-b-0">
                 <div class="input-field col s12">
                   <input 
-                    id="cDescripcion" 
+                    id="name" 
                     type="text" 
-                    name="cDescripcion"
+                    name="name"
                     class="validate m-b-0">
-                  <label for="cDescripcion">Empresa</label>
+                  <label for="name">Nombre</label>
                 </div>
               </div>
               <div class="row m-b-0">
@@ -120,7 +117,7 @@
                   <input 
                     id="email" 
                     type="email" 
-                    name="cLogin"
+                    name="email"
                     class="validate m-b-0">
                   <label for="email">Correo electrónico</label>
                 </div>
@@ -135,16 +132,6 @@
                   <label for="telephone">Teléfono</label>
                 </div>
               </div>
-              <div class="row m-b-0">
-                <div class="input-field col s12">
-                  <input 
-                    id="database" 
-                    type="text" 
-                    name="database"
-                    class="validate m-b-0">
-                  <label for="database">Base de datos</label>
-                </div>
-              </div>
             </div>
             <div class="row">
               <div class="col s12 right-align">
@@ -152,7 +139,7 @@
                   class="btn btn-cancel">
                   Cancelar
                 </button>
-                <button class="btn btn-save save-hover">Guardar</button>
+                <button class="btn btn-save save-hover" type="submit">Guardar</button>
               </div>
             </div>
           </form>
@@ -169,7 +156,7 @@
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-      <p class="title-add">Desea eliminar este cliente?</p>
+      <p class="title-add">Desea eliminar este usuario?</p>
       </div>
         <div class="row">
           <div class="col s12 right-align">
@@ -185,64 +172,67 @@
   </div>
 
   <div 
-    class="modal fade width-customer" 
+    class="modal fade width-modal-edit" 
     tabindex="-1" 
     id="update-user"
     role="dialog" 
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-        <p class="title-add">Editar cliente</p>
+        <p class="title-add">Editar usuario</p>
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
-          <form class="col s12">
+        <form 
+            class="col s12"
+            id="edit-id"
+            name="formEditUser"
+            action="{{url('/update_user')}}/1" 
+            method="POST">
+            <input id="token" type="hidden" name="_token" value="{{csrf_token() }}">
             <div class="row">
               <div class="row m-b-0">
-                <div class="input-field col s12">
+                <div style="padding-left: 10px;">
+                  <label>Nombre</label>
+                </div>
+                <div class="col s12">
                   <input 
-                    id="cDescripcion" 
+                    id="edit-name" 
                     type="text" 
-                    name="cDescripcion"
-                    class="validate m-b-0">
-                  <label for="cDescripcion">Empresa</label>
+                    name="edit-name"
+                    class="validate m-b-0 m-b-15">
+                  
                 </div>
               </div>
               <div class="row m-b-0">
-                <div class="input-field col s12">
+                <div style="padding-left: 10px;">
+                  <label>Correo electrónico</label>
+                </div>
+                <div class="col s12">
                   <input 
-                    id="email" 
+                    id="edit-email" 
                     type="email" 
-                    name="cLogin"
-                    class="validate m-b-0">
-                  <label for="email">Correo electrónico</label>
+                    name="edit-email"
+                    class="validate m-b-0 m-b-15">
                 </div>
               </div>
               <div class="row m-b-0">
-                <div class="input-field col s12">
+                <div style="padding-left: 10px;">
+                  <label>Teléfono</label>
+                </div>
+                <div class="col s12">
                   <input 
-                    id="telephone" 
+                    id="edit-telephone" 
                     type="number" 
-                    name="telephone"
-                    class="validate m-b-0">
-                  <label for="telephone">Teléfono</label>
-                </div>
-              </div>
-              <div class="row m-b-0">
-                <div class="input-field col s12">
-                  <input 
-                    id="database" 
-                    type="text" 
-                    name="database"
-                    class="validate m-b-0">
-                  <label for="database">Base de datos</label>
+                    name="edit-telephone"
+                    class="validate m-b-0 m-b-15">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col s12 right-align">
-                <button class="btn btn-cancel">Cancelar</button>
-                <button class="btn btn-save save-hover">Guardar</button>
+                <button class="btn btn-cancel" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-save save-hover" type="submit" onclick="hola()">Guardar</button>
               </div>
             </div>
           </form>

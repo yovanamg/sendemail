@@ -7,36 +7,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script>
     var openModal = function(){
-      $(document).ready(function(){ $('#add-user').modal();});
+      $(document).ready(function(){ $('#add-customer').modal();});
     }
 
-    var editUser = function(user) {
+    var editCustomer = function(customer) {
       $('#btn-save-edit').click(function() {
-        document.getElementById('edit-id').action = "/update_user/" + user.id;
+        document.getElementById('edit-id').action = "/update_customer/" + customer.id;
       });
       
       $(document).ready(function(){
-        $('#update-user').modal();
-        $("#edit-name").val(user.name);
-        $("#edit-email").val(user.email);
-        $("#edit-telephone").val(user.telephone);
+        $('#update-customer').modal();
+        $("#edit-name").val(customer.name);
+        $("#edit-email").val(customer.email);
+        $("#edit-telephone").val(customer.telephone);
+        $("#edit-database_id").val(customer.database_id);
+        
       });
     };
 
-    var deleteUser = function(user) {
+    var deleteCustomer = function(customer) {
       $('#btn-delete-edit').click(function() {
-        document.getElementById('btn-delete-edit').href = "/delete_user/" + user.id;
+        document.getElementById('btn-delete-edit').href = "/delete_customer/" + customer.id;
       });
       
-      $(document).ready(function(){ $('#delete-user').modal();});
+      $(document).ready(function(){ $('#delete-customer').modal();});
     };
   </script>
-
   <div class="row">
     <div 
       class="col s12 m12 l12 right-align btn-add" 
       style="padding-right: 5% !important; margin-top: 2% !important;">
-      <label style="padding-right: 10px !important;">Agregar usuario</label>
+      <label style="padding-right: 10px !important;">Agregar cliente</label>
       <a
         type="button"
         class="btn-floating waves-effect waves-light btn modal-trigger"
@@ -50,29 +51,31 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Nombre usuario</th>
+            <th>Empresa</th>
             <th>Correo electrónico</th>
             <th>Teléfono</th>
+            <th>Base de datos</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($users as $a)
+          @foreach($customers as $a)
             <tr data-id="{{$a->id}}">
               <td>{{$a->name}}</td>
               <td>{{$a->email}}</td>
               <td>{{$a->telephone}}</td>
+              <td>{{$a->database_id}}</td>
               <td>
                 <a 
                   type="button"
                   class="icons"
-                  onclick="editUser({{$a}})"> 
+                  onclick="editCustomer({{$a}})"> 
                   <i class="material-icons">&#xE254;</i>
                 </a> 
                 <a 
                   type="button" 
                   class="icons"
-                  onclick="deleteUser({{$a}})">
+                  onclick="deleteCustomer({{$a}})">
                   <i class="material-icons">&#xE872;</i>
                 </a>
               </td>
@@ -86,20 +89,20 @@
 
   <!-- Modal -->
   <div 
-    class="modal fade width-modal" 
+    class="modal fade width-customer" 
     tabindex="-1" 
-    id="add-user"
+    id="add-customer"
     role="dialog"
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-        <p class="title-add">Agregar usuario</p>
+        <p class="title-add">Agregar cliente</p>
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
-          <form 
+        <form 
             class="col s12"
-            action="{{url('/save_user')}}" 
+            action="{{url('/save_customer')}}" 
             method="POST">
             <input id="token" type="hidden" name="_token" value="{{csrf_token() }}">
             <div class="row">
@@ -110,7 +113,7 @@
                     type="text" 
                     name="name"
                     class="validate m-b-0">
-                  <label for="name">Nombre</label>
+                  <label for="name">Empresa</label>
                 </div>
               </div>
               <div class="row m-b-0">
@@ -133,6 +136,16 @@
                   <label for="telephone">Teléfono</label>
                 </div>
               </div>
+              <div class="row m-b-0">
+                <div class="input-field col s12">
+                  <input 
+                    id="database_id" 
+                    type="text" 
+                    name="database_id"
+                    class="validate m-b-0">
+                  <label for="database_id">Base de datos</label>
+                </div>
+              </div>
             </div>
             <div class="row">
               <div class="col s12 right-align">
@@ -141,7 +154,11 @@
                   data-dismiss="modal">
                   Cancelar
                 </button>
-                <button class="btn btn-save save-hover" type="submit">Guardar</button>
+                <button 
+                  class="btn btn-save save-hover"
+                  type="submit">
+                  Guardar
+                </button>
               </div>
             </div>
           </form>
@@ -153,12 +170,12 @@
   <div 
     class="modal fade width-delete" 
     tabindex="-1" 
-    id="delete-user"
+    id="delete-customer"
     role="dialog" 
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-      <p class="title-add">Desea eliminar este usuario?</p>
+      <p class="title-add">Desea eliminar este cliente?</p>
       </div>
         <div class="row">
           <div class="col s12 right-align">
@@ -169,7 +186,7 @@
             </button>
             <a 
               class="btn btn-save save-hover" 
-              href="{{url('/delete_user')}}"
+              href="{{url('/delete_customer')}}"
               id="btn-delete-edit">
               <span>Eliminar</span>
             </a>
@@ -180,14 +197,14 @@
   </div>
 
   <div 
-    class="modal fade width-modal-edit" 
+    class="modal fade width-customer-edit" 
     tabindex="-1" 
-    id="update-user"
+    id="update-customer"
     role="dialog" 
     aria-hidden="true">
     <div class="">
       <div class="col s12 m12 l12 title-user topbar-add">
-        <p class="title-add">Editar usuario</p>
+        <p class="title-add">Editar cliente</p>
       </div>
       <div class="col s12 m12 l12">
         <div class="row">
@@ -195,21 +212,20 @@
             class="col s12"
             id="edit-id"
             name="formEditUser"
-            action="{{url('/update_user')}}" 
+            action="{{url('/update_customer')}}" 
             method="POST">
             <input id="token" type="hidden" name="_token" value="{{csrf_token() }}">
             <div class="row">
               <div class="row m-b-0">
                 <div style="padding-left: 10px;">
-                  <label>Nombre</label>
+                  <label>Empresa</label>
                 </div>
                 <div class="col s12">
                   <input 
                     id="edit-name" 
                     type="text" 
                     name="edit-name"
-                    class="validate m-b-0 m-b-15">
-                  
+                    class="validate m-b-0">
                 </div>
               </div>
               <div class="row m-b-0">
@@ -221,7 +237,7 @@
                     id="edit-email" 
                     type="email" 
                     name="edit-email"
-                    class="validate m-b-0 m-b-15">
+                    class="validate m-b-0">
                 </div>
               </div>
               <div class="row m-b-0">
@@ -233,7 +249,19 @@
                     id="edit-telephone" 
                     type="number" 
                     name="edit-telephone"
-                    class="validate m-b-0 m-b-15">
+                    class="validate m-b-0">
+                </div>
+              </div>
+              <div class="row m-b-0">
+                <div style="padding-left: 10px;">
+                  <label>Base de datos</label>
+                </div>
+                <div class="col s12">
+                  <input 
+                    id="edit-database_id" 
+                    type="text" 
+                    name="edit-database_id"
+                    class="validate m-b-0">
                 </div>
               </div>
             </div>
@@ -241,7 +269,9 @@
               <div class="col s12 right-align">
                 <button 
                   class="btn btn-cancel" 
-                  data-dismiss="modal">Cancelar</button>
+                  data-dismiss="modal">
+                  Cancelar
+                </button>
                 <button 
                   class="btn btn-save save-hover" 
                   type="submit" 

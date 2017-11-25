@@ -33,8 +33,13 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('customer', 'Customers\CustomerController@viewmain');
   Route::get('report', 'Reports\ReportController@viewmain');
 
-  Route::post('saveuser', 'Users\UserController@saveuser');
-  Route::get('edituser/{id}', 'Users\UserController@edituser');
+  Route::post('save_user', 'Users\UserController@saveuser');
+  Route::post('update_user/{id}', 'Users\UserController@updateuser');
+  Route::get('delete_user/{id}', 'Users\UserController@deleteuser');
+
+  Route::post('save_customer', 'Customers\CustomerController@savecustomer');
+  Route::post('update_customer/{id}', 'Customers\CustomerController@updatecustomer');
+  Route::get('delete_customer/{id}', 'Customers\CustomerController@deletecustomer');
 
 });
 
@@ -46,8 +51,13 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('customer', 'Customers\CustomerController@viewmain');
   Route::get('report', 'Reports\ReportController@viewmain');
 
-  Route::post('saveuser', 'Users\UserController@saveuser');
-  Route::get('edituser/{id}', 'Users\UserController@edituser');
+  Route::post('save_user', 'Users\UserController@saveuser');
+  Route::post('update_user/{id}', 'Users\UserController@updateuser');
+  Route::get('delete_user/{id}', 'Users\UserController@deleteuser');
+
+  Route::post('save_customer', 'Customers\CustomerController@savecustomer');
+  Route::post('update_customer/{id}', 'Customers\CustomerController@updatecustomer');
+  Route::get('delete_customer/{id}', 'Customers\CustomerController@deletecustomer');
   
 
 });

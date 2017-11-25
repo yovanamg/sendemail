@@ -27,9 +27,24 @@ class UserController extends Controller {
     return redirect('/user');
   }
 
-  public function edituser($id) {
+  public function updateuser($id, Request $data) {
     $user = User::find($id);
-    return view('user.users', compact('user'));
+
+    $user->name=$data->input('edit-name');
+    $user->email=$data->input('edit-email');
+    $user->telephone=$data->input('edit-telephone');
+
+    $user->save();
+
+    return redirect('/user');
+  }
+
+  public function deleteuser($id) {
+    print_r($id);
+    $user = User::find($id);
+    $user->delete();
+
+    return redirect('/user');
   }
 }
 

@@ -11,12 +11,12 @@
     <div class="container">
       <div class="m-t-20 col s12 m12 l12">
         <div class="col s6 m6 l6">
-          <label>Base de datos</label>
+          <label>Base de datos</label>>
           <select class="browser-default">
             <option value="" disabled selected>Selecciona</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            @foreach($emisores as $e)
+              <option>{{$e->name}}</option>
+            @endforeach
           </select>
         </div>
         <div class="col s6 m6 l6">
