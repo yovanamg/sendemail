@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\User;
+use App\Admin;
 use DB;
 
 class UserController extends Controller {
@@ -45,6 +46,11 @@ class UserController extends Controller {
     $user->delete();
 
     return redirect('/user');
+  }
+  
+  public function viewadmin (){
+    $admins = Admin::all();
+    return view('admin.admins', compact('admins'));
   }
 }
 

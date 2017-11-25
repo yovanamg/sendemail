@@ -31,6 +31,7 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('user', 'Users\UserController@viewmain');
   Route::get('customer', 'Customers\CustomerController@viewmain');
   Route::get('report', 'Reports\ReportController@viewmain');
+  Route::get('admin', 'Users\UserController@viewadmin');
 
   Route::post('save_user', 'Users\UserController@saveuser');
   Route::post('update_user/{id}', 'Users\UserController@updateuser');
@@ -49,6 +50,7 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::get('user', 'Users\UserController@viewmain');
   Route::get('customer', 'Customers\CustomerController@viewmain');
   Route::get('report', 'Reports\ReportController@viewmain');
+  Route::get('admin', 'Users\UserController@viewadmin');  
 
   Route::post('save_user', 'Users\UserController@saveuser');
   Route::post('update_user/{id}', 'Users\UserController@updateuser');
@@ -57,6 +59,4 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('save_customer', 'Customers\CustomerController@savecustomer');
   Route::post('update_customer/{id}', 'Customers\CustomerController@updatecustomer');
   Route::get('delete_customer/{id}', 'Customers\CustomerController@deletecustomer');
-  
-
 });

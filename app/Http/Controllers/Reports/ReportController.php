@@ -12,6 +12,6 @@ class ReportController extends Controller {
 
   public function viewmain() {
     $emisores = Emisores::all();
-    return view('admin.reports', compact('emisores'));
+    return view('report.reports', compact('emisores'));
   }
 }

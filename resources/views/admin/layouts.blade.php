@@ -54,20 +54,23 @@
               <img src="img/logo-1.png" class="image-logo">
             </a>
           </div>
-          <div class="col s6 m6 l3">
+          <div class="col s6 m6 l6">
             <div class="col s12 m12 l12 color-hover">
-              <div class="col s4 m4 l4">
+              <div class="col s3 m4 l3">
+                <a href="{{ url('/admin') }}">Admins</a>
+              </div>
+              <div class="col s4 m4 l3">
                 <a href="{{ url('/user') }}">Usuarios</a>
               </div>
-              <div class="col s4 m4 l4">
+              <div class="col s4 m4 l3">
                 <a href="{{ url('/customer') }}">Clientes</a>
               </div>
-              <div class="col s4 m4 l4">
+              <div class="col s4 m4 l3">
                 <a href="{{ url('/report') }}">Reportes</a>
               </div>
             </div>
           </div>
-          <div class="col s4 m4 l7 p-0">
+          <div class="col s4 m4 l4 p-0">
           <ul id="nav-mobile" class="right color-hover">
             @if (Auth::guard('web_admin')->guest())
               <li><a href="{{ url('/admin_login') }}">Entrar</a></li>
