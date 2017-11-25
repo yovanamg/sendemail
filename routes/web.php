@@ -27,7 +27,6 @@ Route::group(['middleware' => 'admin_guest'], function() {
   Route::post('admin_password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail');
   Route::get('admin_password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
   Route::post('admin_password/reset', 'AdminAuth\ResetPasswordController@reset');
-  Route::get('Inicio', 'HomeController@home');
 
   Route::get('user', 'Users\UserController@viewmain');
   Route::get('customer', 'Customers\CustomerController@viewmain');
@@ -61,9 +60,3 @@ Route::group(['middleware' => 'admin_guest'], function() {
   
 
 });
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
